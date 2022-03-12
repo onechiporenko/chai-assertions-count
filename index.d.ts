@@ -15,5 +15,5 @@ declare global {
 }
 
 declare const chaiAssertionsCount: Chai.ChaiPlugin;
-declare namespace chaiAssertionsCount { }
+declare namespace chaiAssertionsCount {}
 export = chaiAssertionsCount;
