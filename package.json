@@ -1,0 +1,47 @@
+{
+  "name": "chai-assertions-count",
+  "version": "0.0.1",
+  "description": "Plugin for ChaiJS allows checking how many assertions, asserts or expects were run per each test",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "npm run build",
+    "test": "mocha -r ts-node/register \"tests/**/*.ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onechiporenko/chai-assertions-count.git"
+  },
+  "keywords": [
+    "chai",
+    "chai-plugin",
+    "assertions",
+    "testing"
+  ],
+  "author": "onechiporenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onechiporenko/chai-assertions-count/issues"
+  },
+  "homepage": "https://github.com/onechiporenko/chai-assertions-count#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^9.2.2",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "chai": "^4.3.6"
+  }
+}
