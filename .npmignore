@@ -1,6 +1,5 @@
 node_modules
-src
+tests
 .idea
 .github
-tsconfig.json
 .nyc_output
