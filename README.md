@@ -108,3 +108,8 @@ describe('suite #2', () => {
 Here are **two** expects and we "expect" that two of them will be executed. In the same time there are **three** assertions "under the hood". First `expect` has a single assertion. However, second `expect` has two of them. First one checks that property `length` exists and another one checks its value. So, be aware with `expectAssertions` counter.
 
 Method `expectExpects` can cover most cases, so `expectAssertions` won't be used in 99.9%.
+
+## Restrictions
+
+* Works only with [Expect](https://www.chaijs.com/guide/styles/#expect) style.
+* Stop other tests on `expectExpects` or `expectAssertions` fail.
