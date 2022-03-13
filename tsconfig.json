@@ -3,13 +3,13 @@
     "module": "commonjs",
     "target": "es5",
     "noImplicitAny": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
     "declaration": false,
     "outDir": "dist",
-    "removeComments": true
+    "removeComments": true,
   },
+  "include": ["src", "tests", "mocha-hooks.ts", "index.d.ts"],
   "exclude": [
     "node_modules"
   ]

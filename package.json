@@ -5,11 +5,11 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc && rm -rf dist/tests && cp dist/src/* dist/. && rm -rf dist/src dist/mocha-hooks.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run build",
-    "test": "mocha -r ts-node/register \"tests/**/*.ts\""
+    "test": "mocha -r ts-node/register -r \"./mocha-hooks.ts\" \"tests/**/*.ts\""
   },
   "repository": {
     "type": "git",

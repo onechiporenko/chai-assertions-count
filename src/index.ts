@@ -1,12 +1,9 @@
-const plugin: Chai.ChaiPlugin = (_chai, utils) => {
+const chaiAssertionsCount: Chai.ChaiPlugin = (_chai, utils) => {
   let assertionsCount = 0;
   let expectsCount = 0;
-  let assertsCount = 0;
   let expectedAssertionsCount = null;
   let expectedExpectsCount = null;
-  let expectedAssertsCount = null;
   let checkAssertions = false;
-  let checkAsserts = false;
   let checkExpects = false;
 
   utils.overwriteMethod(_chai.Assertion.prototype, 'assert', function (_super) {
@@ -23,21 +20,12 @@ const plugin: Chai.ChaiPlugin = (_chai, utils) => {
     };
   });
 
-  utils.overwriteMethod(_chai, 'assert', function (_super) {
-    return function () {
-      assertsCount++;
-      return _super.apply(this, arguments); // eslint-disable-line prefer-rest-params
-    };
-  });
-  utils.addMethod(_chai.Assertion, 'resetAssertionsCheck', function () {
+  utils.addMethod(_chai.Assertion, 'resetAssertsCheck', function () {
     assertionsCount = 0;
     expectsCount = 0;
-    assertsCount = 0;
     expectedAssertionsCount = null;
-    expectedAssertsCount = null;
     expectedExpectsCount = null;
     checkAssertions = false;
-    checkAsserts = false;
     checkExpects = false;
   });
 
@@ -49,11 +37,6 @@ const plugin: Chai.ChaiPlugin = (_chai, utils) => {
       checkAssertions = true;
     }
   );
-
-  utils.addMethod(_chai.Assertion, 'expectAsserts', function (assertsCount) {
-    expectedAssertsCount = assertsCount;
-    checkAsserts = true;
-  });
 
   utils.addMethod(_chai.Assertion, 'expectExpects', function (expectsCount) {
     expectedExpectsCount = expectsCount;
@@ -69,15 +52,6 @@ const plugin: Chai.ChaiPlugin = (_chai, utils) => {
     }
   });
 
-  utils.addMethod(_chai.Assertion, 'checkAssertsCount', function () {
-    if (checkAsserts) {
-      new _chai.Assertion(
-        assertsCount,
-        'Actual asserts count is not equal to expected'
-      ).to.be.equal(expectedAssertsCount);
-    }
-  });
-
   utils.addMethod(_chai.Assertion, 'checkExpectsCount', function () {
     if (checkExpects) {
       new _chai.Assertion(
@@ -88,4 +62,4 @@ const plugin: Chai.ChaiPlugin = (_chai, utils) => {
   });
 };
 
-export default plugin;
+export default chaiAssertionsCount;

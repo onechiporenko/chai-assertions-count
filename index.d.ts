@@ -3,12 +3,10 @@
 declare global {
   namespace Chai {
     interface AssertionStatic {
-      resetAssertionsCheck(): void;
+      resetAssertsCheck(): void;
       expectAssertions(assertionsCount: number): void;
-      expectAsserts(assertsCount: number): void;
       expectExpects(expectsCount: number): void;
       checkAssertionsCount(): void;
-      checkAssertsCount(): void;
       checkExpectsCount(): void;
     }
   }

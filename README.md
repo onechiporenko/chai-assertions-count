@@ -1,6 +1,6 @@
 # Chai Assertions Count
 
-> Plugin for ChaiJS allows checking how many assertions, asserts or expects were run per each test
+> Plugin for ChaiJS allows checking how many assertions or expects were run per each test.
 
 ## Why do we need to check it?
 
@@ -75,30 +75,27 @@ chai.use(chaiAssertionsCount);
 
 export const mochaHooks = {
   beforeEach() {
-    chai.Assertion.resetAssertionsCheck();
+    chai.Assertion.resetAssertsCheck();
   },
   afterEach() {
     // you don't need all of them
     chai.Assertion.checkAssertionsCount();
-    chai.Assertion.checkAssertsCount();
     chai.Assertion.checkExpectsCount();
   }
 };
 ```
 
-Method `resetAssertionsCheck` just drops internal counters and **must** be used before each test.
-
-Method `checkAssertsCount` calculated how many times `chai.assert` was called. Use it in case when your tests use [Assert](https://www.chaijs.com/guide/styles/#assert) style.
+Method `resetAssertsCheck` just drops internal counters and **must** be used before each test.
 
 Method `checkExpectsCount` calculated how many times `chai.expect` was called. Use it in case when your tests use [Expect](https://www.chaijs.com/guide/styles/#expect) style.
 
-Method `checkAssertionsCount` calculated how many assertions were done. Main difference between this method and two previous is that single `expect` or `assert` may do more than one `assertion`. Example below illustrates this:
+Method `checkAssertionsCount` calculated how many assertions were done. Main difference between this method and previous one is that single `expect` may do more than one `assertion`. Example below illustrates this:
 
 ```js
 import chai from 'chai';
 
-describe('Suite #2', () => {
-  it('Test #1', () => {
+describe('suite #2', () => {
+  it('test #1', () => {
     chai.Assertion.expectAssertions(3);
     chai.Assertion.expectExpects(2);
     
@@ -110,4 +107,4 @@ describe('Suite #2', () => {
 
 Here are **two** expects and we "expect" that two of them will be executed. In the same time there are **three** assertions "under the hood". First `expect` has a single assertion. However, second `expect` has two of them. First one checks that property `length` exists and another one checks its value. So, be aware with `expectAssertions` counter.
 
-Methods `expectExpects` and `expectAsserts` can cover most cases, so `expectAssertions` won't be used in 99.9%.
+Method `expectExpects` can cover most cases, so `expectAssertions` won't be used in 99.9%.
