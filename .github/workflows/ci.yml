@@ -8,10 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.4.0
-      - name: Install & Build
-        run: |
-          npm i
-          npm run build
+      - name: Install
+        run: npm i
       - name: Lint
         run: npm run lint
       - name: Run Tests
