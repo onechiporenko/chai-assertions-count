@@ -1,6 +1,6 @@
 {
   "name": "chai-assertions-count",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Plugin for ChaiJS allows checking how many assertions, asserts or expects were run per each test",
   "main": "./index",
   "types": "./types/index.d.ts",
