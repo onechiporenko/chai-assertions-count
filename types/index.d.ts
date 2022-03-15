@@ -1,5 +1,4 @@
-/// <reference types="chai" />
-// Merge namespace with global chai
+/// <reference types="chai" /
 declare global {
   namespace Chai {
     interface AssertionStatic {
@@ -12,6 +11,5 @@ declare global {
   }
 }
 
-declare const chaiAssertionsCount: Chai.ChaiPlugin;
-declare namespace chaiAssertionsCount {}
+declare function chaiAssertionsCount (chai: any, utils: any): void;
 export = chaiAssertionsCount;
