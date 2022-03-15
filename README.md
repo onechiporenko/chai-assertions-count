@@ -18,7 +18,7 @@ describe('suite #1', () => {
        */
       afterCreate(...args) {
         // I need to check `args` here
-        // expect(args)... 
+        // chai.expect(args)... 
       }
     }
     InstanceGenerator.create(S1T1A, 3); // create 3 instances of S1T1A
@@ -57,32 +57,21 @@ chai.use(chaiAssertionsCount);
 
 ## Usage
 
-Usage example with [mochajs](https://mochajs.org/).
-
-Create a file called `mocha-hooks.mjs` and add it to your tests command:
-
-```shell
-mocha -r "./mocha-hooks.mjs" "tests/**/*.js"
-```
-
-Content `mocha-hooks.mjs` may be next:
-
 ```js
-import chai from 'chai';
-import chaiAssertionsCount from 'chai-assertions-count';
-
+const chai = require('chai');
+const chaiAssertionsCount = require('chai-assertions-count');
 chai.use(chaiAssertionsCount);
 
-export const mochaHooks = {
-  beforeEach() {
+describe('suite #2', () => {
+  beforeEach(() => {
     chai.Assertion.resetAssertsCheck();
-  },
-  afterEach() {
-    // you don't need all of them
+  });
+  afterEach(() => {
+    // you don't need both of them
     chai.Assertion.checkAssertionsCount();
     chai.Assertion.checkExpectsCount();
-  }
-};
+  });
+});
 ```
 
 Method `resetAssertsCheck` just drops internal counters and **must** be used before each test.
@@ -92,15 +81,17 @@ Method `checkExpectsCount` calculated how many times `chai.expect` was called. U
 Method `checkAssertionsCount` calculated how many assertions were done. Main difference between this method and previous one is that single `expect` may do more than one `assertion`. Example below illustrates this:
 
 ```js
-import chai from 'chai';
+const chai = require('chai');
+const chaiAssertionsCount = require('chai-assertions-count');
+chai.use(chaiAssertionsCount);
 
-describe('suite #2', () => {
+describe('suite #3', () => {
   it('test #1', () => {
     chai.Assertion.expectAssertions(3);
     chai.Assertion.expectExpects(2);
-    
-    expect(1).to.be.equal(1);
-    expect([]).to.have.property('length', 0);
+
+    chai.expect(1).to.be.equal(1);
+    chai.expect([]).to.have.property('length', 0);
   });
 });
 ```
