@@ -2,8 +2,8 @@
   "name": "chai-assertions-count",
   "version": "0.0.1",
   "description": "Plugin for ChaiJS allows checking how many assertions, asserts or expects were run per each test",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./index",
+  "types": "./types/index.d.ts",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -35,6 +35,6 @@
     "prettier": "^2.5.1"
   },
   "peerDependencies": {
-    "chai": "^4.3.6"
+    "chai": "*"
   }
 }

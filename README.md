@@ -112,4 +112,4 @@ Method `expectExpects` can cover most cases, so `expectAssertions` won't be used
 ## Restrictions
 
 * Works only with [Expect](https://www.chaijs.com/guide/styles/#expect) style.
-* Stop other tests on `expectExpects` or `expectAssertions` fail.
+* Stop other tests in the current suite on `expectExpects` or `expectAssertions` fail.
