@@ -1,5 +1,10 @@
 # Chai Assertions Count
 
+[![CI](https://github.com/onechiporenko/chai-assertions-count/actions/workflows/ci.yml/badge.svg)](https://github.com/onechiporenko/chai-assertions-count/actions/workflows/ci.yml)
+[![npm version](https://badge.fury.io/js/chai-assertions-count.png)](http://badge.fury.io/js/chai-assertions-count)
+[![Downloads](http://img.shields.io/npm/dm/chai-assertions-count.svg)](https://www.npmjs.com/package/chai-assertions-count)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+
 > Plugin for ChaiJS allows checking how many assertions or expects were run per each test.
 
 ## Why do we need to check it?
