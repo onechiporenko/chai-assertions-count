@@ -27,7 +27,7 @@
   "homepage": "https://github.com/onechiporenko/chai-assertions-count#readme",
   "devDependencies": {
     "@types/chai": "^4.3.0",
-    "chai": "^4.3.6",
+    "chai": "^5.0.0",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
